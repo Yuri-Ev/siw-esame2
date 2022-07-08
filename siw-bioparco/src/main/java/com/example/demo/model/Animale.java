@@ -14,7 +14,6 @@ public class Animale {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	
 	@NotBlank
 	private String nome;
 	
