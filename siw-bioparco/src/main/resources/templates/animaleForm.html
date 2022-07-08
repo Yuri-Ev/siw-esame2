@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<form th:action="@{/animale}" method="post" th:object="${animale}">
+		<div>
+			Nome: <input type="text" th:field="*{nome}">
+		</div>
+
+		<div>
+			Descrizione: <input type="text" th:field="*{descrizione}">
+		</div>
+
+		<div>
+			<button type="submit">Conferma</button>
+		</div>
+</body>
+</html>

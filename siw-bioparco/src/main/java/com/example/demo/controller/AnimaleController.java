@@ -21,8 +21,19 @@ public class AnimaleController {
 
 	@Autowired
 	AnimaleService animaleService;
+
+
+	@GetMapping("/")
+	public String home() {
+		return "landingPage.html";
+	}
+
 	
-	
+	@GetMapping("/admin/animale")
+	public String getFormAnimale(Model model){
+		model.addAttribute("animale", new Animale());
+		return "animaleForm.html";
+	}
 	
 	@PostMapping("/animale")
 	public String addAnimale(@Valid @ModelAttribute("animale") Animale animale,BindingResult bindingResult, Model model) {
@@ -33,20 +44,20 @@ public class AnimaleController {
 		}
 		return "animaleForm.html";
 	}
-	
+
 	@GetMapping("/animale/{id}")
 	public String getAnimale(@PathVariable("id") Long id, Model model) {
 		Animale animale = animaleService.findById(id);
 		model.addAttribute("animale",animale);
 		return "animale.html";
 	}
-	
+
 	@GetMapping("/animali")
 	public String getListaAnimali (Model model) {
 		List<Animale> animali = animaleService.findAll();
 		model.addAttribute("animali",animali);
 		return "animali.html";
 	}
-	
-	
+
+
 }

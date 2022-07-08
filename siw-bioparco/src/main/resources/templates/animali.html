@@ -4,6 +4,12 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-
+	<span th:each=animale:${animali}> <a th:text="${animale.nome}"
+		th:href="@{'/animale' + '/' + ${animale.id}}" href="animale.html"></a>
+		<br></br>
+	</span>
+	<br></br>
+	<br></br>
+	<a th:href="@{/}" th:text="Home"></a>
 </body>
 </html>
