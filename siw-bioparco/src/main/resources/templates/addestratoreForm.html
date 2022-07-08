@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<form th:action="@{/addestratore}" method="post" th:object="${addestratore}">
+		<div>
+			Nome: <input type="text" th:field="*{nome}">
+		</div>
+
+		<div>
+			Cognome: <input type="text" th:field="*{cognome}">
+		</div>
+
+		<div>
+			<button type="submit">Conferma</button>
+		</div>
+</body>
+</html>
