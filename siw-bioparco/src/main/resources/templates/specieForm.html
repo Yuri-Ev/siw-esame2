@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-	<form th:action="@{/addestratore}" method="post" th:object="${addestratore}">
+	<form th:action="@{/specie}" method="post" th:object="${specie}">
 		<div>
 			Nome: <input type="text" th:field="*{nome}">
 		</div>
 
 		<div>
-			Cognome: <input type="text" th:field="*{cognome}">
+			Descrizione: <input type="text" th:field="*{descrizione}">
 		</div>
 
 		<div>

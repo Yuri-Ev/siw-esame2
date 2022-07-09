@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Addestratore {
+public class Specie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,9 +18,10 @@ public class Addestratore {
 	private String nome;
 
 	@NotBlank
-	private String cognome;
+	private String descrizione;
 
-
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -37,11 +38,14 @@ public class Addestratore {
 		this.nome = nome;
 	}
 
-	public String getCognome() {
-		return cognome;
+	public String getDescrizione() {
+		return descrizione;
 	}
 
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
 	}
+
+
+
 }

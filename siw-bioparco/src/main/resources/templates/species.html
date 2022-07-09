@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<span th:each=specie:${species}> <a th:text="${specie.nome}"
+		th:href="@{'/specie' + '/' + ${specie.id}}" href="specie.html"></a> <br></br>
+	</span>
+	<br></br>
+	<br></br>
+	<a th:href="@{/}" th:text="Home"></a>
+</body>
+</html>
