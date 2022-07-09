@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -20,6 +21,10 @@ public class Animale {
 	@Size(max = 100)
 	private String descrizione;
 
+	@ManyToOne
+	private Specie specie;
+	
+	private String areaGeografica;
 	
 	public long getId() {
 		return id;
@@ -43,6 +48,22 @@ public class Animale {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+
+	public Specie getSpecie() {
+		return specie;
+	}
+
+	public void setSpecie(Specie specie) {
+		this.specie = specie;
+	}
+
+	public String getAreaGeografica() {
+		return areaGeografica;
+	}
+
+	public void setAreaGeografica(String areaGeografica) {
+		this.areaGeografica = areaGeografica;
 	}
 
 }

@@ -4,9 +4,11 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-	<span th:text="${animale.nome} + ' ' + ${animale.descrizione}"></span>
+	<span
+		th:text="${animale.nome} + ' ' + ${animale.descrizione} + ' ' + ${animale.areaGeografica} + ' ' + ${animale.specie.nome}"></span>
 
-		<br></br>
-	<br></br> <a th:href="@{/}" th:text="Home"></a>
+	<br></br>
+	<br></br>
+	<a th:href="@{/}" th:text="Home"></a>
 </body>
 </html>
