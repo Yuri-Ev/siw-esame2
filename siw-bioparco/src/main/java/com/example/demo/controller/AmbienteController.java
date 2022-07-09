@@ -52,4 +52,18 @@ public class AmbienteController {
 		model.addAttribute("ambienti",ambienti);
 		return "ambienti.html";
 	}
+	
+	@GetMapping("/admin/toDeleteAmbiente/{id}")
+	public String toDeleteAmbiente(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("ambiente",ambienteService.findById(id));
+		return "riepilogoToDeleteAmbiente.html";
+	}
+
+
+	@GetMapping("/admin/deleteAmbiente/{id}")
+	public String deleteAmbiente(@PathVariable("id") Long id, Model model) {
+		ambienteService.deleteById(id);
+		model.addAttribute("ambienti", ambienteService.findAll());
+		return "ambienti.html";
+	}
 }

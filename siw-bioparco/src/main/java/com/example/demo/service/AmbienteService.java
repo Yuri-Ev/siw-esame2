@@ -15,20 +15,24 @@ public class AmbienteService {
 
 	@Autowired
 	AmbienteRepository ambienteRepository;
-	
+
 	@Transactional
 	public void save(Ambiente ambiente) {
 		ambienteRepository.save(ambiente);
 	}
-	
+
 	public Ambiente findById(Long id) {
 		return ambienteRepository.findById(id).get();
 	}
-	
+
 	public List<Ambiente> findAll(){
 		List<Ambiente> ambienti = new ArrayList<>();
 		for (Ambiente a : ambienteRepository.findAll())
 			ambienti.add(a);
 		return ambienti;
+	}
+
+	public void deleteById(Long id) {
+		ambienteRepository.deleteById(id);
 	}
 }

@@ -7,6 +7,10 @@
 	<span th:each=ambiente:${ambienti}> <a
 		th:text="${ambiente.nome}"
 		th:href="@{'/ambiente' + '/' + ${ambiente.id}}" href="ambiente.html"></a>
+		
+		<a href="addestratore.html"
+		th:href="@{'/admin/toDeleteAmbiente' + '/' + ${ambiente.id}}"
+		th:text=Rimuovi>Rimuovi</a>
 		<br></br>
 	</span>
 	<br></br>

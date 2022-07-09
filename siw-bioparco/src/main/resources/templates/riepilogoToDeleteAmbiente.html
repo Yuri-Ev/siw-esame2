@@ -4,6 +4,12 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-
+	<p>Dati dell'ambiente da eliminare</p>
+	<br></br>
+	<div>
+		<span th:text="${ambiente.nome}"></span> <span
+			th:text="${ambiente.descrizione}"></span>
+	</div>
+	<a th:href="@{'/admin/deleteAmbiente' + '/'  + ${ambiente.id}}" th:text="Elimina">Elimina</a>
 </body>
 </html>
