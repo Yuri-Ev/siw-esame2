@@ -4,6 +4,13 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-
+	<span th:each=ambiente:${ambienti}> <a
+		th:text="${ambiente.nome}"
+		th:href="@{'/ambiente' + '/' + ${ambiente.id}}" href="ambiente.html"></a>
+		<br></br>
+	</span>
+	<br></br>
+	<br></br>
+	<a th:href="@{/}" th:text="Home"></a>
 </body>
 </html>

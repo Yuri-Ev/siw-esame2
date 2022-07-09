@@ -4,6 +4,18 @@
 <meta charset="UTF-8" />
 </head>
 <body>
+	<form th:action="@{/ambiente}" method="post" th:object="${ambiente}">
+		<div>
+			Nome: <input type="text" th:field="*{nome}">
+		</div>
 
+		<div>
+			Descrizione: <input type="text" th:field="*{descrizione}">
+		</div>
+
+		<div>
+			<button type="submit">Conferma</button>
+		</div>
+	</form>
 </body>
 </html>
