@@ -22,6 +22,16 @@
 			</select>
 		</div>
 		<br></br>
+		
+		<!-- Select Ambiente -->
+		<div>
+			<p th:text="'Seleziona' + ' ' + 'ambiente'"></p>
+			<select th:field="*{habitat}">
+				<option th:each=ambiente:${ambienti} th:value="${ambiente.id}"
+					th:text="${ambiente.nome}"></option>
+			</select>
+		</div>
+		<br></br>
 		<!-- Select Regione Geografica -->
 		<div>
 			<p th:text="'Seleziona' + ' ' + 'area'  + ' ' + 'geografica'"></p>

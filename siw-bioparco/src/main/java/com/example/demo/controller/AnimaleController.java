@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Animale;
+import com.example.demo.service.AmbienteService;
 import com.example.demo.service.AnimaleService;
 import com.example.demo.service.SpecieService;
 
@@ -25,6 +26,9 @@ public class AnimaleController {
 
 	@Autowired
 	SpecieService specieService;
+	
+	@Autowired
+	AmbienteService ambienteService;
 
 	@GetMapping("/")
 	public String home() {
@@ -36,6 +40,7 @@ public class AnimaleController {
 	public String getFormAnimale(Model model){
 		model.addAttribute("animale", new Animale());
 		model.addAttribute("species",specieService.findAll());
+		model.addAttribute("ambienti",ambienteService.findAll());
 		return "animaleForm.html";
 	}
 	

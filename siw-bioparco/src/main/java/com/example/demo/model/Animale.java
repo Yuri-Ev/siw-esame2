@@ -10,22 +10,27 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Animale {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+
 	@NotBlank
 	private String nome;
-	
+
 	@Size(max = 100)
 	private String descrizione;
 
 	@ManyToOne
 	private Specie specie;
-	
+
 	private String areaGeografica;
-	
+
+	@ManyToOne
+	private Ambiente habitat;
+
+
+
 	public long getId() {
 		return id;
 	}
@@ -64,6 +69,14 @@ public class Animale {
 
 	public void setAreaGeografica(String areaGeografica) {
 		this.areaGeografica = areaGeografica;
+	}
+
+	public Ambiente getHabitat() {
+		return habitat;
+	}
+
+	public void setHabitat(Ambiente habitat) {
+		this.habitat = habitat;
 	}
 
 }

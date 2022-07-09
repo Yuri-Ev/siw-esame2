@@ -22,7 +22,6 @@ public class Ambiente {
 	private String descrizione;
 
 
-
 	public long getId() {
 		return id;
 	}
