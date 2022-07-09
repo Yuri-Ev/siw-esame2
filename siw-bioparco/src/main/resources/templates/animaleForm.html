@@ -8,31 +8,35 @@
 		<div>
 			Nome: <input type="text" th:field="*{nome}">
 		</div>
-
+		<br></br>
 		<div>
 			Descrizione: <input type="text" th:field="*{descrizione}">
 		</div>
-
+		<br></br>
 		<!-- Select Specie -->
 		<div>
+			<p th:text="'Seleziona' + ' ' + 'specie'"></p>
 			<select th:field="*{specie}">
 				<option th:each=specie:${species} th:value="${specie.id}"
 					th:text="${specie.nome}"></option>
 			</select>
 		</div>
-
+		<br></br>
 		<!-- Select Regione Geografica -->
 		<div>
+			<p th:text="'Seleziona' + ' ' + 'area'  + ' ' + 'geografica'"></p>
 			<select th:field="*{areaGeografica}">
 				<option th:value="Africa" th:text="Africa"></option>
-				<option th:value="'America centro' + '-' + 'meridionale'" th:text="'America centro' + '-' + 'meridionale'"></option>
-				<option th:value="'America' + ' ' + 'settentrionale'" th:text="'America' + ' ' + 'settentrionale'"></option>
+				<option th:value="'America centro' + '-' + 'meridionale'"
+					th:text="'America centro' + '-' + 'meridionale'"></option>
+				<option th:value="'America' + ' ' + 'settentrionale'"
+					th:text="'America' + ' ' + 'settentrionale'"></option>
 				<option th:value="Asia" th:text="Asia"></option>
 				<option th:value="Europa" th:text="Europa"></option>
 				<option th:value="Oceania" th:text="Oceania"></option>
 			</select>
 		</div>
-
+		<br></br>
 		<div>
 			<button type="submit">Conferma</button>
 		</div>
