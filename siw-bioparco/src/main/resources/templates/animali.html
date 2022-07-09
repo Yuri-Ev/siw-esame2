@@ -6,6 +6,10 @@
 <body>
 	<span th:each=animale:${animali}> <a th:text="${animale.nome}"
 		th:href="@{'/animale' + '/' + ${animale.id}}" href="animale.html"></a>
+		
+		<a href="animalee.html"
+		th:href="@{'/admin/toDeleteAnimale' + '/' + ${animale.id}}"
+		th:text=Rimuovi>Rimuovi</a>
 		<br></br>
 	</span>
 	<br></br>

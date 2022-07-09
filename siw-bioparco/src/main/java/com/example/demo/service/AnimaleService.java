@@ -32,4 +32,8 @@ public class AnimaleService {
 			animali.add(a);
 		return animali;
 	}
+	
+	public void deleteById(Long id) {
+		animaleRepository.deleteById(id);
+	}
 }

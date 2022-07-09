@@ -59,5 +59,17 @@ public class AnimaleController {
 		return "animali.html";
 	}
 
+	@GetMapping("/admin/toDeleteAnimale/{id}")
+	public String toDeleteAnimale(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("animale",animaleService.findById(id));
+		return "riepilogoToDeleteAnimale.html";
+	}
 
+
+	@GetMapping("/admin/deleteAnimale/{id}")
+	public String deleteAnimale(@PathVariable("id") Long id, Model model) {
+		animaleService.deleteById(id);
+		model.addAttribute("animali", animaleService.findAll());
+		return "animali.html";
+	}
 }
