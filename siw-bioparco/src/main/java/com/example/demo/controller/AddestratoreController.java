@@ -51,4 +51,18 @@ public class AddestratoreController {
 		model.addAttribute("addestratori",addestratori);
 		return "addestratori.html";
 	}
+	
+	@GetMapping("/admin/toDeleteAddestratore/{id}")
+	public String toDeleteAddestratore(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("addestratore",addestratoreService.findById(id));
+		return "riepilogoToDeleteAddestratore.html";
+	}
+
+
+	@GetMapping("/admin/deleteAddestratore/{id}")
+	public String deleteAddestratore(@PathVariable("id") Long id, Model model) {
+		addestratoreService.deleteById(id);
+		model.addAttribute("addestratori", addestratoreService.findAll());
+		return "addestratori.html";
+	}
 }

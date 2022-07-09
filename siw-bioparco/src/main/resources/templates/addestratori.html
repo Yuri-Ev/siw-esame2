@@ -7,7 +7,9 @@
 	<span th:each=addestratore:${addestratori}> <a
 		th:text="${addestratore.nome}"
 		th:href="@{'/addestratore' + '/' + ${addestratore.id}}"
-		href="addestratore.html"></a> <br></br>
+		href="addestratore.html"></a> <a href="addestratore.html"
+		th:href="@{'/admin/toDeleteAddestratore' + '/' + ${addestratore.id}}"
+		th:text=Rimuovi>Rimuovi</a> <br></br>
 	</span>
 	<br></br>
 	<br></br>

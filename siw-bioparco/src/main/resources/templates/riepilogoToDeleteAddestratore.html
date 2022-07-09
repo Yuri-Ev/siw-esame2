@@ -4,6 +4,13 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-
+	<y>Dati dell'addestratore da eliminare</y>
+	</br>
+	<div>
+		<span th:text="${addestratore.nome}"></span> <span
+			th:text="${addestratore.cognome}"></span>
+	</div>
+	<a th:href="@{'/admin/deleteAddestratore' + '/'  + ${addestratore.id}}"><h4>Elimina</h4></a>
+	</div>
 </body>
 </html>

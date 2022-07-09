@@ -31,4 +31,8 @@ public class AddestratoreService {
 			addestratori.add(a);
 		return addestratori;
 	}
+	
+	public void deleteById(Long id) {
+		addestratoreRepository.deleteById(id);
+	}
 }
