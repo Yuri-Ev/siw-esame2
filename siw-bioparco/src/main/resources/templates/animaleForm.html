@@ -45,6 +45,15 @@
 				<option th:value="Europa" th:text="Europa"></option>
 				<option th:value="Oceania" th:text="Oceania"></option>
 			</select>
+			
+			<!-- Select Alimentazione -->
+		<div>
+			<p th:text="'Seleziona' + ' ' + 'alimentazione'"></p>
+			<select th:field="*{alimentazione}">
+			<option th:value="Carnivoro" th:text="Carnivoro" > </option>
+			<option th:value="Erbivoro" th:text="Erbivoro" > </option>
+			<option th:value="Onnivoro" th:text="Onnivoro" > </option>
+			</select>
 		</div>
 		<br></br>
 		<div>

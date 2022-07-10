@@ -26,6 +26,8 @@ public class Animale {
 
 	private String areaGeografica;
 
+	private String alimentazione;
+
 	@ManyToOne
 	private Ambiente habitat;
 
@@ -77,6 +79,14 @@ public class Animale {
 
 	public void setHabitat(Ambiente habitat) {
 		this.habitat = habitat;
+	}
+
+	public String getAlimentazione() {
+		return alimentazione;
+	}
+
+	public void setAlimentazione(String alimentazione) {
+		this.alimentazione = alimentazione;
 	}
 
 }
