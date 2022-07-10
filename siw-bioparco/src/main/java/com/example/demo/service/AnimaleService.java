@@ -29,11 +29,15 @@ public class AnimaleService {
 	public List<Animale> findAll(){
 		List<Animale> animali = new ArrayList<>();
 		for (Animale a : animaleRepository.findAll())
-			animali.add(a);
+			animali.add(a); 
 		return animali;
 	}
 	
 	public void deleteById(Long id) {
 		animaleRepository.deleteById(id);
+	}
+	
+	public boolean alreadyExists(Animale animale) {
+		return animaleRepository.existsByNome(animale.getNome());
 	}
 }

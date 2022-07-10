@@ -35,4 +35,8 @@ public class AmbienteService {
 	public void deleteById(Long id) {
 		ambienteRepository.deleteById(id);
 	}
+	
+	public boolean alreadyExists(Ambiente ambiente) {
+		return ambienteRepository.existsByNome(ambiente.getNome());
+	}
 }

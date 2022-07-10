@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Ambiente;
 import com.example.demo.service.AmbienteService;
+import com.example.demo.validator.AmbienteValidator;
 
 @Controller
 public class AmbienteController {
 
 	@Autowired
 	AmbienteService ambienteService;
+	
+	@Autowired
+	AmbienteValidator validator;
 
 
 	@GetMapping("/admin/ambiente")
@@ -31,6 +35,7 @@ public class AmbienteController {
 
 	@PostMapping("/ambiente")
 	public String addAmbiente(@Valid @ModelAttribute("ambiente") Ambiente ambiente,BindingResult bindingResult, Model model) {
+		validator.validate(ambiente, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			ambienteService.save(ambiente);
 			model.addAttribute("ambiente",ambiente);

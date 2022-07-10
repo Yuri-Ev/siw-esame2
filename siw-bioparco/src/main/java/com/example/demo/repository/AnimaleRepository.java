@@ -6,4 +6,6 @@ import com.example.demo.model.Animale;
 
 public interface AnimaleRepository extends CrudRepository<Animale, Long>{
 
+	public boolean existsByNome(String nome);
+	
 }

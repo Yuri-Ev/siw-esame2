@@ -17,6 +17,7 @@ import com.example.demo.model.Animale;
 import com.example.demo.service.AmbienteService;
 import com.example.demo.service.AnimaleService;
 import com.example.demo.service.SpecieService;
+import com.example.demo.validator.AnimaleValidator;
 
 @Controller
 public class AnimaleController {
@@ -30,6 +31,10 @@ public class AnimaleController {
 	@Autowired
 	AmbienteService ambienteService;
 
+	@Autowired
+	AnimaleValidator validator;
+	
+	
 	@GetMapping("/")
 	public String home() {
 		return "landingPage.html";
@@ -46,11 +51,14 @@ public class AnimaleController {
 	
 	@PostMapping("/animale")
 	public String addAnimale(@Valid @ModelAttribute("animale") Animale animale,BindingResult bindingResult, Model model) {
+		validator.validate(animale, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			animaleService.save(animale);
 			model.addAttribute("animale",animale);
 			return "animale.html";
 		}
+		model.addAttribute("species",specieService.findAll());
+		model.addAttribute("ambienti",ambienteService.findAll());
 		return "animaleForm.html";
 	}
 
