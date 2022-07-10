@@ -35,7 +35,7 @@ public class SpecieController {
 			model.addAttribute("specie",specie);
 			return "specie.html";
 		}
-		return "addestratoreForm.html";
+		return "specieForm.html";
 	}
 
 	@GetMapping("/specie/{id}")

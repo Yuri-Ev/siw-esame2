@@ -7,10 +7,14 @@
 	<form th:action="@{/animale}" method="post" th:object="${animale}">
 		<div>
 			Nome: <input type="text" th:field="*{nome}">
+			<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+				th:style="'color:red'"></p>
 		</div>
 		<br></br>
 		<div>
 			Descrizione: <input type="text" th:field="*{descrizione}">
+			<p th:if="${#fields.hasErrors('descrizione')}"
+				th:errors="*{descrizione}" th:style="'color:red'"></p>
 		</div>
 		<br></br>
 		<!-- Select Specie -->
@@ -20,9 +24,11 @@
 				<option th:each=specie:${species} th:value="${specie.id}"
 					th:text="${specie.nome}"></option>
 			</select>
+			<p th:if="${#fields.hasErrors('specie')}" th:errors="*{specie}"
+				th:style="'color:red'"></p>
 		</div>
 		<br></br>
-		
+
 		<!-- Select Ambiente -->
 		<div>
 			<p th:text="'Seleziona' + ' ' + 'ambiente'"></p>
@@ -30,6 +36,8 @@
 				<option th:each=ambiente:${ambienti} th:value="${ambiente.id}"
 					th:text="${ambiente.nome}"></option>
 			</select>
+			<p th:if="${#fields.hasErrors('habitat')}" th:errors="*{habitat}"
+				th:style="'color:red'"></p>
 		</div>
 		<br></br>
 		<!-- Select Regione Geografica -->
@@ -45,20 +53,25 @@
 				<option th:value="Europa" th:text="Europa"></option>
 				<option th:value="Oceania" th:text="Oceania"></option>
 			</select>
-			
+
 			<!-- Select Alimentazione -->
-		<div>
-			<p th:text="'Seleziona' + ' ' + 'alimentazione'"></p>
-			<select th:field="*{alimentazione}">
-			<option th:value="Carnivoro" th:text="Carnivoro" > </option>
-			<option th:value="Erbivoro" th:text="Erbivoro" > </option>
-			<option th:value="Onnivoro" th:text="Onnivoro" > </option>
-			</select>
-		</div>
-		<br></br>
-		<div>
-			<button type="submit">Conferma</button>
-		</div>
+			<div>
+				<p th:text="'Seleziona' + ' ' + 'alimentazione'"></p>
+				<select th:field="*{alimentazione}">
+					<option th:value="Carnivoro" th:text="Carnivoro"></option>
+					<option th:value="Erbivoro" th:text="Erbivoro"></option>
+					<option th:value="Onnivoro" th:text="Onnivoro"></option>
+				</select>
+			</div>
+
+			<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+			</div>
+
+			<br></br>
+			<div>
+				<button type="submit">Conferma</button>
+			</div>
 	</form>
 </body>
 </html>

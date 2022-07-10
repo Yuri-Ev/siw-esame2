@@ -18,6 +18,7 @@ public class Ambiente {
 	@NotBlank
 	private String nome;
 
+	@NotBlank
 	@Size(max = 100)
 	private String descrizione;
 

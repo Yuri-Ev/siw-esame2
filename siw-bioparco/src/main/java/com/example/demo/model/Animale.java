@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -18,9 +19,11 @@ public class Animale {
 	@NotBlank
 	private String nome;
 
+	@NotBlank
 	@Size(max = 100)
 	private String descrizione;
 
+	@NotNull
 	@ManyToOne
 	private Specie specie;
 
@@ -28,6 +31,7 @@ public class Animale {
 
 	private String alimentazione;
 
+	@NotNull
 	@ManyToOne
 	private Ambiente habitat;
 
