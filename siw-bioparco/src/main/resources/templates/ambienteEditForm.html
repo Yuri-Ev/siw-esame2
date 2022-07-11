@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<form th:action="@{'/admin/ambiente/edit/' + ${ambiente.id}}" method="post" th:object="${ambiente}">
+		<div>
+			Nome: <input type="text" th:field="*{nome}">
+			<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+				th:style="'color:red'"></p>
+		</div>
+
+		<div>
+			Descrizione: <input type="text" th:field="*{descrizione}">
+			<p th:if="${#fields.hasErrors('descrizione')}"
+				th:errors="*{descrizione}" th:style="'color:red'"></p>
+		</div>
+
+		<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
+			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+
+		<div>
+			<button type="submit">Conferma</button>
+		</div>
+	</form>
+</body>
+</html>

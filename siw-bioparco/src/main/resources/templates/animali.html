@@ -7,9 +7,13 @@
 	<span th:each=animale:${animali}> <a th:text="${animale.nome}"
 		th:href="@{'/animale' + '/' + ${animale.id}}" href="animale.html"></a>
 		
-		<a href="animalee.html"
+		<a href="animale.html"
 		th:href="@{'/admin/toDeleteAnimale' + '/' + ${animale.id}}"
 		th:text=Rimuovi>Rimuovi</a>
+		
+		<a href="animale.html"
+		th:href="@{'/admin/animale/edit' + '/' + ${animale.id}}"
+		th:text="Modifica">Modifica</a>
 		<br></br>
 	</span>
 	<br></br>

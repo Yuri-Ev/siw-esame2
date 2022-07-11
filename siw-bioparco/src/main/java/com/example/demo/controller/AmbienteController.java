@@ -22,7 +22,7 @@ public class AmbienteController {
 
 	@Autowired
 	AmbienteService ambienteService;
-	
+
 	@Autowired
 	AmbienteValidator validator;
 
@@ -57,7 +57,7 @@ public class AmbienteController {
 		model.addAttribute("ambienti",ambienti);
 		return "ambienti.html";
 	}
-	
+
 	@GetMapping("/admin/toDeleteAmbiente/{id}")
 	public String toDeleteAmbiente(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("ambiente",ambienteService.findById(id));
@@ -70,5 +70,23 @@ public class AmbienteController {
 		ambienteService.deleteById(id);
 		model.addAttribute("ambienti", ambienteService.findAll());
 		return "ambienti.html";
+	}
+
+	@GetMapping("/admin/ambiente/edit/{id}")
+	public String toEditAmbiente(@PathVariable("id") Long id, Model model){
+		model.addAttribute("ambiente", ambienteService.findById(id));
+		return "ambienteEditForm.html";
+	}
+
+
+	@PostMapping("/admin/ambiente/edit/{id}")
+	public String editAmbiente(@Valid @ModelAttribute("ambiente") Ambiente ambiente,BindingResult bindingResult, Model model) {
+		if(!bindingResult.hasErrors()) {
+			ambienteService.save(ambiente);
+			model.addAttribute("ambiente",ambiente);
+			return "ambiente.html";
+		}
+		model.addAttribute("ambiente",ambiente);
+		return "ambienteEditForm.html";
 	}
 }

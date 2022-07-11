@@ -8,9 +8,13 @@
 		th:text="${ambiente.nome}"
 		th:href="@{'/ambiente' + '/' + ${ambiente.id}}" href="ambiente.html"></a>
 		
-		<a href="addestratore.html"
+		<a href="ambiente.html"
 		th:href="@{'/admin/toDeleteAmbiente' + '/' + ${ambiente.id}}"
 		th:text=Rimuovi>Rimuovi</a>
+		
+		<a href="ambiente.html"
+		th:href="@{'/admin/ambiente/edit' + '/' + ${ambiente.id}}"
+		th:text="Modifica">Modifica</a>
 		<br></br>
 	</span>
 	<br></br>
