@@ -4,6 +4,13 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-
+<p>Dati dell'animale da eliminare</p>
+	<br></br>
+	<div>
+		<span th:text="${animale.nome}"></span> <span
+			th:text="${animale.descrizione}"></span>
+	</div>
+	<a th:href="@{'/admin/deleteAnimale' + '/'  + ${animale.id}}" th:text="Elimina">Elimina</a>
+	</div>
 </body>
 </html>

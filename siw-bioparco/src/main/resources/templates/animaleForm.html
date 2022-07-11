@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<form th:action="@{/animale}" method="post" th:object="${animale}">
+		<div>
+			Nome: <input type="text" th:field="*{nome}">
+			<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+				th:style="'color:red'"></p>
+		</div>
+		<br></br>
+		<div>
+			Descrizione: <input type="text" th:field="*{descrizione}">
+			<p th:if="${#fields.hasErrors('descrizione')}"
+				th:errors="*{descrizione}" th:style="'color:red'"></p>
+		</div>
+		<br></br>
+		<!-- Select Classe -->
+		<div>
+			<p th:text="'Seleziona' + ' ' + 'classe'"></p>
+			<select th:field="*{classe}">
+				<option th:each=classe:${classes} th:value="${classe.id}"
+					th:text="${classe.nome}"></option>
+			</select>
+			<p th:if="${#fields.hasErrors('classe')}" th:errors="*{classe}"
+				th:style="'color:red'"></p>
+		</div>
+		<br></br>
+
+		<!-- Select Ambiente -->
+		<div>
+			<p th:text="'Seleziona' + ' ' + 'ambiente'"></p>
+			<select th:field="*{habitat}">
+				<option th:each=ambiente:${ambienti} th:value="${ambiente.id}"
+					th:text="${ambiente.nome}"></option>
+			</select>
+			<p th:if="${#fields.hasErrors('habitat')}" th:errors="*{habitat}"
+				th:style="'color:red'"></p>
+		</div>
+		<br></br>
+		<!-- Select Regione Geografica -->
+		<div>
+			<p th:text="'Seleziona' + ' ' + 'area'  + ' ' + 'geografica'"></p>
+			<select th:field="*{areaGeografica}">
+				<option th:value="Africa" th:text="Africa"></option>
+				<option th:value="'America centro' + '-' + 'meridionale'"
+					th:text="'America centro' + '-' + 'meridionale'"></option>
+				<option th:value="'America' + ' ' + 'settentrionale'"
+					th:text="'America' + ' ' + 'settentrionale'"></option>
+				<option th:value="Asia" th:text="Asia"></option>
+				<option th:value="Europa" th:text="Europa"></option>
+				<option th:value="Oceania" th:text="Oceania"></option>
+			</select>
+
+			<!-- Select Alimentazione -->
+			<div>
+				<p th:text="'Seleziona' + ' ' + 'alimentazione'"></p>
+				<select th:field="*{alimentazione}">
+					<option th:value="Carnivoro" th:text="Carnivoro"></option>
+					<option th:value="Erbivoro" th:text="Erbivoro"></option>
+					<option th:value="Onnivoro" th:text="Onnivoro"></option>
+				</select>
+			</div>
+
+			<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+			</div>
+
+			<br></br>
+			<div>
+				<button type="submit">Conferma</button>
+			</div>
+	</form>
+</body>
+</html>

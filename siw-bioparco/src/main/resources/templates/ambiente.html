@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 </head>
 <body>
+<span th:text="${ambiente.nome} + ' ' + ${ambiente.descrizione}"></span>
 
+		<br></br>
+	<br></br> <a th:href="@{/}" th:text="Home"></a>
 </body>
 </html>

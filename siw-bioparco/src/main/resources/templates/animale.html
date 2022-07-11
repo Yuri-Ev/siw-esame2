@@ -4,6 +4,12 @@
 <meta charset="UTF-8" />
 </head>
 <body>
+	<span
+		th:text="'Nome:' + ${animale.nome} + '  Descrizione: ' + ${animale.descrizione} + 'Area' + ' Geografica: ' + ${animale.areaGeografica} 
+		+ '  Classe: ' + ${animale.classe.nome} + '  Habitat: ' + ${animale.habitat.nome} + '  Alimentazione: ' + ${animale.alimentazione}"></span>
 
+	<br></br>
+	<br></br>
+	<a th:href="@{/}" th:text="Home"></a>
 </body>
 </html>
