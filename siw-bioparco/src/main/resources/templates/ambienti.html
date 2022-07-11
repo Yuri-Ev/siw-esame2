@@ -17,12 +17,10 @@
 				</div>
 				<!-- Menu Navigation Bar -->
 				<div class="menu">
-					<home> 				<a sec:authorize="!isAuthenticated()">
-					<a th:href="@{/}">Home</a>
-				</a>
-				<a sec:authorize="isAuthenticated()">
-					<a th:href="@{/admin}">Home</a>
-				</a></home>
+					<home> <a sec:authorize="!isAuthenticated()"> <a
+						th:href="@{/}">Home</a>
+					</a> <a sec:authorize="isAuthenticated()"> <a th:href="@{/admin}">Home</a>
+					</a></home>
 					<a th:href="@{/animali}">ANIMALI</a> <a th:href="@{/ambienti}">AMBIENTI</a>
 					<a th:href="@{/classes}">CLASSI</a>
 				</div>
@@ -30,13 +28,16 @@
 			<div id="flex">
 				<div class="flex1">
 					<div>
-						<y>Elenco Ambienti</y></br>
-						<span th:each=ambiente:${ambienti}> <a
+						<y>Elenco Ambienti</y>
+						</br> <span th:each=ambiente:${ambienti}> <a
 							th:text="${ambiente.nome}"
 							th:href="@{'/ambiente' + '/' + ${ambiente.id}}"
-							href="ambiente.html"></a> <a sec:authorize="isAuthenticated()"><a href="addestratore.html"
-							th:href="@{'/admin/toDeleteAmbiente' + '/' + ${ambiente.id}}"
-							th:text=Rimuovi>Rimuovi</a></a>
+							href="ambiente.html"></a> <a sec:authorize="isAuthenticated()"><a
+								href="addestratore.html"
+								th:href="@{'/admin/toDeleteAmbiente' + '/' + ${ambiente.id}}"
+								th:text=Rimuovi>Rimuovi</a> <a href="ambiente.html"
+								th:href="@{'/admin/ambiente/edit' + '/' + ${ambiente.id}}"
+								th:text="Modifica">Modifica</a></a>
 						</span>
 					</div>
 				</div>
