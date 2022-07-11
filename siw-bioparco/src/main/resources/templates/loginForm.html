@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+<link rel="stylesheet" type="text/css" href="/css/stile.css" />
+</head>
+<body>
+	<div id="page-container">
+		<div id="content-wrap">
+			<!-- all other page content -->
+
+
+			<div class="flex-item1">
+				<div class="title">
+					<t>&nbsp;&nbsp;BIOPARCO.IT&nbsp;&nbsp;</t>
+				</div>
+				<!-- Menu Navigation Bar -->
+				<div class="menu">
+					<home> 				<a sec:authorize="!isAuthenticated()">
+					<a th:href="@{/}">Home</a>
+				</a>
+				<a sec:authorize="isAuthenticated()">
+					<a th:href="@{/admin}">Home</a>
+				</a></home>
+					<a th:href="@{/animali}">ANIMALI</a> <a th:href="@{/ambienti}">AMBIENTI</a>
+					<a th:href="@{/addestratori}">ADDESTRATORI</a>
+				</div>
+			</div>
+			<div id="flex">
+				<div class="flex1">
+					<div>
+						<div>Questa pagina è ad utilizzo esclusivo degli
+							amministratori del sito</div>
+						</br>
+						<div>
+							<y>Login</y>
+						</div>
+
+						<form th:action="@{/login}" method="POST">
+							<div>
+								<div>
+									<h6>
+										<span>Username:</span>
+									</h6>
+									<h6>
+										<span><input name="username" type="text" required /></span>
+									</h6>
+								</div>
+								<div>
+									<h6>
+										<span>Password:</span>
+									</h6>
+									<h6>
+										<span><input name="password" type="password" required /></span>
+									</h6>
+								</div>
+								<div>
+									<h6>
+										<span><button type="submit">Login</button></span>
+									</h6>
+								</div>
+							</div>
+						</form>
+						</br>
+						<y>Non sei iscritto?</y>
+						</br>
+						<div>
+							Accedi con <a href="/oauth2/authorization/google"><l>Google</l></a>
+							o <a th:href="@{/register}"><l>Registrati</l></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Footer Section -->
+			<footer>
+				<a th:href="@{/login}">Login</a>
+			</footer>
+		</div>
+</body>
+</html>

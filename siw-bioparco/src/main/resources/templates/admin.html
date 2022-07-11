@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Home</title>
+<title>Admin</title>
 <link rel="stylesheet" type="text/css" href="/css/stile.css" />
 </head>
 <body>
@@ -17,12 +17,10 @@
 				</div>
 				<!-- Menu Navigation Bar -->
 				<div class="menu">
-					<home> 				<a sec:authorize="!isAuthenticated()">
-					<a th:href="@{/}">Home</a>
-				</a>
-				<a sec:authorize="isAuthenticated()">
-					<a th:href="@{/admin}">Home</a>
-				</a></home>
+					<home> <a sec:authorize="!isAuthenticated()"> <a
+						th:href="@{/}">Home</a>
+					</a> <a sec:authorize="isAuthenticated()"> <a th:href="@{/admin}">Home</a>
+					</a></home>
 					<a th:href="@{/animali}">ANIMALI</a> <a th:href="@{/ambienti}">AMBIENTI</a>
 					<a th:href="@{/classes}">CLASSI</a>
 				</div>
@@ -30,14 +28,11 @@
 			<div id="flex">
 				<div class="flex1">
 					<div>
-						<y>Dati dell'ambiente da eliminare</y>
-						<br></br>
-						<div>
-							<span th:text="${ambiente.nome}"></span> <span
-								th:text="${ambiente.descrizione}"></span>
-						</div>
-						<a th:href="@{'/admin/deleteAmbiente' + '/'  + ${ambiente.id}}"
-							th:text="Elimina">Elimina</a>
+						<a th:href="@{/admin/animale}"
+							th:text="'aggiungi' + ' ' + 'animale'"></a></br> <a
+							th:href="@{/admin/classe}" th:text="'aggiungi' + ' ' + 'classe'"></a></br>
+						<a th:href="@{/admin/ambiente}"
+							th:text="'aggiungi' + ' ' + 'ambiente'"></a></br>
 					</div>
 				</div>
 			</div>

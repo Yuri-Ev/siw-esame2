@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Home</title>
+<title>Registrazione Riuscita</title>
 <link rel="stylesheet" type="text/css" href="/css/stile.css" />
 </head>
 <body>
@@ -24,31 +24,19 @@
 					<a th:href="@{/admin}">Home</a>
 				</a></home>
 					<a th:href="@{/animali}">ANIMALI</a> <a th:href="@{/ambienti}">AMBIENTI</a>
-					<a th:href="@{/classes}">CLASSI</a>
+					<a th:href="@{/addestratori}">ADDESTRATORI</a>
 				</div>
 			</div>
 			<div id="flex">
 				<div class="flex1">
 					<div>
-						<y>Dati dell'ambiente da eliminare</y>
-						<br></br>
-						<div>
-							<span th:text="${ambiente.nome}"></span> <span
-								th:text="${ambiente.descrizione}"></span>
-						</div>
-						<a th:href="@{'/admin/deleteAmbiente' + '/'  + ${ambiente.id}}"
-							th:text="Elimina">Elimina</a>
+						<y>Registrazione Riuscita<y>
 					</div>
 				</div>
 			</div>
 			<!-- Footer Section -->
 			<footer>
-				<div sec:authorize="!isAuthenticated()">
-					<a th:href="@{/login}">Login</a>
-				</div>
-				<div sec:authorize="isAuthenticated()">
-					<a th:href="@{/logout}">Logout</a>
-				</div>
+				<a th:href="@{/login}">Login</a>
 			</footer>
 		</div>
 </body>

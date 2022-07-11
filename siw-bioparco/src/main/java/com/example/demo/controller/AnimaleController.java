@@ -35,12 +35,6 @@ public class AnimaleController {
 	AnimaleValidator validator;
 
 
-	@GetMapping("/")
-	public String home() {
-		return "landingPage.html";
-	}
-
-
 	@GetMapping("/admin/animale")
 	public String getFormAnimale(Model model){
 		model.addAttribute("animale", new Animale());
