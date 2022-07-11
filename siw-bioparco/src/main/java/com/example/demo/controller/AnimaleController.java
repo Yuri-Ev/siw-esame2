@@ -83,4 +83,25 @@ public class AnimaleController {
 		model.addAttribute("animali", animaleService.findAll());
 		return "animali.html";
 	}
+	
+	@GetMapping("/admin/animale/edit/{id}")
+	public String toEditAnimale(@PathVariable("id") Long id, Model model){
+		model.addAttribute("animale",animaleService.findById(id));
+		model.addAttribute("classes",classeService.findAll());
+		model.addAttribute("ambienti",ambienteService.findAll());
+		return "animaleEditForm.html";
+	}
+
+
+	@PostMapping("/admin/animale/edit/{id}")
+	public String editAmbiente(@Valid @ModelAttribute("animale") Animale animale,BindingResult bindingResult, Model model) {
+		if(!bindingResult.hasErrors()) {
+			animaleService.save(animale);
+			model.addAttribute("animale",animale);
+			return "animale.html";
+		}
+		model.addAttribute("classes",classeService.findAll());
+		model.addAttribute("ambienti",ambienteService.findAll());
+		return "animaleEditForm.html";
+	}
 }
