@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.model.Animale;
 import com.example.demo.service.AmbienteService;
@@ -44,10 +47,14 @@ public class AnimaleController {
 	}
 
 	@PostMapping("/animale")
-	public String addAnimale(@Valid @ModelAttribute("animale") Animale animale,BindingResult bindingResult, Model model) {
+	public String addAnimale(@Valid @ModelAttribute("animale") Animale animale,BindingResult bindingResult, Model model,@RequestParam("image") MultipartFile image) throws IOException {
 		validator.validate(animale, bindingResult);
 		if(!bindingResult.hasErrors()) {
-			animaleService.save(animale);
+			String fileName = animale.getNome() + ".png";
+	        animale.setPhoto(fileName);         
+	        animaleService.save(animale);	 
+	        String uploadDir = "animali-photos/";
+	        FileUploadUtil.saveFile(uploadDir, fileName, image);
 			model.addAttribute("animale",animale);
 			return "animale.html";
 		}

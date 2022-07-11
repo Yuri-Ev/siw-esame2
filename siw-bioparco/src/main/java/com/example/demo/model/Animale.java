@@ -22,6 +22,8 @@ public class Animale {
 	@NotBlank
 	@Size(max = 100)
 	private String descrizione;
+	
+	private String photo;
 
 	@NotNull
 	@ManyToOne
@@ -91,6 +93,14 @@ public class Animale {
 
 	public void setClasse(Classe classe) {
 		this.classe = classe;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 }

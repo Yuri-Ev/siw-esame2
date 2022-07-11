@@ -18,8 +18,8 @@ public class AnimaleService {
 	
 	
 	@Transactional
-	public void save(Animale animale) {
-		animaleRepository.save(animale);
+	public Animale save(Animale animale) {
+		return animaleRepository.save(animale);
 	}
 	
 	public Animale findById(Long id) {
