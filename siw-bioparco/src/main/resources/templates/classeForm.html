@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-	<form th:action="@{/specie}" method="post" th:object="${specie}">
+	<form th:action="@{/classe}" method="post" th:object="${classe}">
 		<div>
 			Nome: <input type="text" th:field="*{nome}">
 			<p th:if="${#fields.hasErrors('nome')}"

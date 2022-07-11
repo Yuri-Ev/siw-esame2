@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Specie {
+public class Classe { 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

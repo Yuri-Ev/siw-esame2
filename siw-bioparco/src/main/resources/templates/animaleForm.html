@@ -17,14 +17,14 @@
 				th:errors="*{descrizione}" th:style="'color:red'"></p>
 		</div>
 		<br></br>
-		<!-- Select Specie -->
+		<!-- Select Classe -->
 		<div>
-			<p th:text="'Seleziona' + ' ' + 'specie'"></p>
-			<select th:field="*{specie}">
-				<option th:each=specie:${species} th:value="${specie.id}"
-					th:text="${specie.nome}"></option>
+			<p th:text="'Seleziona' + ' ' + 'classe'"></p>
+			<select th:field="*{classe}">
+				<option th:each=classe:${classes} th:value="${classe.id}"
+					th:text="${classe.nome}"></option>
 			</select>
-			<p th:if="${#fields.hasErrors('specie')}" th:errors="*{specie}"
+			<p th:if="${#fields.hasErrors('classe')}" th:errors="*{classe}"
 				th:style="'color:red'"></p>
 		</div>
 		<br></br>

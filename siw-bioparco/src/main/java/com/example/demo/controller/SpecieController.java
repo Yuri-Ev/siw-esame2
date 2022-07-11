@@ -13,43 +13,43 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.model.Specie;
-import com.example.demo.service.SpecieService;
+import com.example.demo.model.Classe;
+import com.example.demo.service.ClasseService;
 
 @Controller
 public class SpecieController {
 
 	@Autowired
-	SpecieService specieService;
-	
-	@GetMapping("/admin/specie")
-	public String getFormSpecie(Model model){
-		model.addAttribute("specie", new Specie());
-		return "specieForm.html";
+	ClasseService classeService;
+
+	@GetMapping("/admin/classe")
+	public String getFormClasse(Model model){
+		model.addAttribute("classe", new Classe());
+		return "classeForm.html";
 	}
-	
-	@PostMapping("/specie")
-	public String addSpecie(@Valid @ModelAttribute("specie") Specie specie,BindingResult bindingResult, Model model) {
+
+	@PostMapping("/classe")
+	public String addClasse(@Valid @ModelAttribute("classe") Classe classe,BindingResult bindingResult, Model model) {
 		if(!bindingResult.hasErrors()) {
-			specieService.save(specie);
-			model.addAttribute("specie",specie);
-			return "specie.html";
+			classeService.save(classe);
+			model.addAttribute("classe",classe);
+			return "classe.html";
 		}
-		return "specieForm.html";
+		return "classeForm.html";
 	}
 
-	@GetMapping("/specie/{id}")
-	public String getSpecie(@PathVariable("id") Long id, Model model) {
-		Specie specie = specieService.findById(id);
-		model.addAttribute("specie",specie);
-		return "specie.html";
+	@GetMapping("/classe/{id}")
+	public String getClasse(@PathVariable("id") Long id, Model model) {
+		Classe classe = classeService.findById(id);
+		model.addAttribute("classe",classe);
+		return "classe.html";
 	}
 
-	@GetMapping("/species")
-	public String getListaSpecie (Model model) {
-		List<Specie> species = specieService.findAll();
-		model.addAttribute("species",species);
-		return "species.html";
+	@GetMapping("/classes")
+	public String getListaClassi (Model model) {
+		List<Classe> classes = classeService.findAll();
+		model.addAttribute("classes",classes);
+		return "classes.html";
 	}
-	
+
 }

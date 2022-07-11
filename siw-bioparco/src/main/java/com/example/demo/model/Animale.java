@@ -25,7 +25,7 @@ public class Animale {
 
 	@NotNull
 	@ManyToOne
-	private Specie specie;
+	private Classe classe;
 
 	private String areaGeografica;
 
@@ -61,14 +61,6 @@ public class Animale {
 		this.descrizione = descrizione;
 	}
 
-	public Specie getSpecie() {
-		return specie;
-	}
-
-	public void setSpecie(Specie specie) {
-		this.specie = specie;
-	}
-
 	public String getAreaGeografica() {
 		return areaGeografica;
 	}
@@ -91,6 +83,14 @@ public class Animale {
 
 	public void setAlimentazione(String alimentazione) {
 		this.alimentazione = alimentazione;
+	}
+
+	public Classe getClasse() {
+		return classe;
+	}
+
+	public void setClasse(Classe classe) {
+		this.classe = classe;
 	}
 
 }
