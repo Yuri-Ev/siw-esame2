@@ -17,7 +17,7 @@ import com.example.demo.model.Classe;
 import com.example.demo.service.ClasseService;
 
 @Controller
-public class SpecieController {
+public class ClasseController {
 
 	@Autowired
 	ClasseService classeService;

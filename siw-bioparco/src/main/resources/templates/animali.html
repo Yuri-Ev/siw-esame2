@@ -30,15 +30,17 @@
 			<div id="flex">
 				<div class="flex1">
 					<div>
-						<y>Elenco Animali</y>
+						<y>Elenco Animali</y></br>
 						<span th:each=animale:${animali}> <a
 							th:text="${animale.nome}"
 							th:href="@{'/animale' + '/' + ${animale.id}}" href="animale.html"></a>
 
-							<a href="animalee.html"
+							<a sec:authorize="isAuthenticated()"><a href="animalee.html"
 							th:href="@{'/admin/toDeleteAnimale' + '/' + ${animale.id}}"
-							th:text=Rimuovi>Rimuovi</a> <br></br>
+							th:text=Rimuovi>Rimuovi</a></a>
+							<img th:src="@{${'/css/' + animale.nome + '.jpg'}}">
 						</span>
+						
 					</div>
 				</div>
 			</div>
