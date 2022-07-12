@@ -43,10 +43,10 @@ public class AmbienteController {
 		validator.validate(ambiente, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			String fileName = ambiente.getNome() + ".png";
-	        ambiente.setPhoto(fileName);         
-	        ambienteService.save(ambiente);	 
-	        String uploadDir = "src/main/resources/static/ambienti-photos/";
-	        FileUploadUtil.saveFile(uploadDir, fileName, image);
+			ambiente.setPhoto(fileName);         
+			ambienteService.save(ambiente);	 
+			String uploadDir = "src/main/resources/static/ambienti-photos/";
+			FileUploadUtil.saveFile(uploadDir, fileName, image);
 			model.addAttribute("ambiente",ambiente);
 			return "ambiente.html";
 		}
@@ -92,9 +92,15 @@ public class AmbienteController {
 
 
 	@PostMapping("/admin/ambiente/edit/{id}")
-	public String editAmbiente(@Valid @ModelAttribute("ambiente") Ambiente ambiente,BindingResult bindingResult, Model model) {
+	public String editAmbiente(@Valid @ModelAttribute("ambiente") Ambiente ambiente,BindingResult bindingResult, Model model,@RequestParam("image") MultipartFile image) throws IOException  {
 		if(!bindingResult.hasErrors()) {
-			ambienteService.save(ambiente);
+			String dirToPic = "src/main/resources/static/ambienti-photos/";
+			File picToDestroy = new File(dirToPic + ambienteService.findById(ambiente.getId()).getPhoto());
+			picToDestroy.delete();
+			String fileName = ambiente.getNome() + ".png";
+			ambiente.setPhoto(fileName);         
+			ambienteService.save(ambiente);	 
+			FileUploadUtil.saveFile(dirToPic, fileName, image);
 			model.addAttribute("ambiente",ambiente);
 			return "ambiente.html";
 		}
