@@ -17,12 +17,10 @@
 				</div>
 				<!-- Menu Navigation Bar -->
 				<div class="menu">
-					<home> 				<a sec:authorize="!isAuthenticated()">
-					<a th:href="@{/}">Home</a>
-				</a>
-				<a sec:authorize="isAuthenticated()">
-					<a th:href="@{/admin}">Home</a>
-				</a></home>
+					<home> <a sec:authorize="!isAuthenticated()"> <a
+						th:href="@{/}">Home</a>
+					</a> <a sec:authorize="isAuthenticated()"> <a th:href="@{/admin}">Home</a>
+					</a></home>
 					<a th:href="@{/animali}">ANIMALI</a> <a th:href="@{/ambienti}">AMBIENTI</a>
 					<a th:href="@{/classes}">CLASSI</a>
 				</div>
@@ -32,7 +30,7 @@
 					<div>
 						<y>Aggiungi un Ambiente</y>
 						<form th:action="@{/ambiente}" method="post"
-							th:object="${ambiente}">
+							th:object="${ambiente}" enctype="multipart/form-data">
 							<div>
 								Nome: <input type="text" th:field="*{nome}">
 								<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
@@ -48,6 +46,9 @@
 							<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
 								<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 							</div>
+
+							<label>Photos: </label> <input type="file" name="image"
+								accept="image/png, image/jpeg" />
 
 							<div>
 								<button type="submit">Conferma</button>

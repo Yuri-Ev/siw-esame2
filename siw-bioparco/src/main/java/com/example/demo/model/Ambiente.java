@@ -21,6 +21,8 @@ public class Ambiente {
 	@NotBlank
 	@Size(max = 100)
 	private String descrizione;
+	
+	private String photo;
 
 
 	public long getId() {
@@ -45,6 +47,14 @@ public class Ambiente {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 }
