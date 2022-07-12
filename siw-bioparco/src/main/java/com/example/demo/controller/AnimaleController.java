@@ -105,9 +105,15 @@ public class AnimaleController {
 
 
 	@PostMapping("/admin/animale/edit/{id}")
-	public String editAnimale(@Valid @ModelAttribute("animale") Animale animale,BindingResult bindingResult, Model model) {
+	public String editAnimale(@Valid @ModelAttribute("animale") Animale animale,BindingResult bindingResult, Model model,@RequestParam("image") MultipartFile image) throws IOException {
 		if(!bindingResult.hasErrors()) {
-			animaleService.save(animale);
+			String dirToPic = "src/main/resources/static/animali-photos/";
+			File picToDestroy = new File(dirToPic + animaleService.findById(animale.getId()).getPhoto());
+			picToDestroy.delete();
+			String fileName = animale.getNome() + ".png";
+	        animale.setPhoto(fileName);         
+	        animaleService.save(animale);	 
+	        FileUploadUtil.saveFile(dirToPic, fileName, image);
 			model.addAttribute("animale",animale);
 			return "animale.html";
 		}
