@@ -29,9 +29,12 @@
 			</div>
 			<div id="flex">
 				<div class="flex1">
+				<div class="flex3"><img th:src="@{${'/css/' + ambiente.nome + '.jpg'}}"></div>
+				<div class="flex4">
 					<div>
-						<y>Descrizione Ambiente</y>
+						<y>Descrizione Ambiente</y></br>
 						<span th:text="${ambiente.nome} + ' ' + ${ambiente.descrizione}"></span>
+					</div>
 					</div>
 				</div>
 			</div>
