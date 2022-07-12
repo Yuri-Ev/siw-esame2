@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -75,6 +76,9 @@ public class AmbienteController {
 
 	@GetMapping("/admin/deleteAmbiente/{id}")
 	public String deleteAmbiente(@PathVariable("id") Long id, Model model) {
+		String dirToPic = "src/main/resources/static/ambienti-photos/";
+		File picToDestroy = new File(dirToPic + ambienteService.findById(id).getPhoto());
+		picToDestroy.delete();
 		ambienteService.deleteById(id);
 		model.addAttribute("ambienti", ambienteService.findAll());
 		return "ambienti.html";
