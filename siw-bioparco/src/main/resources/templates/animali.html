@@ -28,16 +28,17 @@
 			<div id="flex">
            <div class="flex9"> 
             <span th:each=animale:${animali}> 
-            <div class="flex8"><a
+            <div class="flex8">
+            <img style="width: 100%; max-width: 100px" th:src="@{${'/animali-photos/' + animale.nome + '.png'}}"></br>
+            <a
 							th:text="${animale.nome}"
-							th:href="@{'/animale' + '/' + ${animale.id}}" href="animale.html"></a>
+							th:href="@{'/animale' + '/' + ${animale.id}}" href="animale.html"></a></br>
 
 							<a sec:authorize="isAuthenticated()"><a href="animalee.html"
 								th:href="@{'/admin/toDeleteAnimale' + '/' + ${animale.id}}"
 								th:text=Rimuovi>Rimuovi</a> <a href="animale.html"
 								th:href="@{'/admin/animale/edit' + '/' + ${animale.id}}"
-								th:text="Modifica">Modifica</a></a> <img
-							th:src="@{${'/css/' + animale.nome + '.jpg'}}">
+								th:text="Modifica">Modifica</a></a> 
 						</div>
             </span>
         
