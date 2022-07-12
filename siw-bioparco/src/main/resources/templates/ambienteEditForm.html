@@ -21,7 +21,7 @@
 				th:errors="*{descrizione}" th:style="'color:red'"></p>
 		</div>
 
-		<label>Photos: </label> <input type="file" name="image"
+		<label>Photo: </label> <input type="file" name="image"
 			accept="image/png, image/jpeg" />
 
 		<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
