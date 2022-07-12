@@ -31,9 +31,9 @@
 				<div class="flex1">
 					<div>
 						<y>Elenco Classi</y></br>
-						<span th:each=classe:${classes}> <a
+						<span th:each=classe:${classes}> <l><a
 							th:text="${classe.nome}"
-							th:href="@{'/classe' + '/' + ${classe.id}}" href="classe.html"></a>
+							th:href="@{'/classe' + '/' + ${classe.id}}" href="classe.html"></l></a>
 							<br></br>
 						</span>
 					</div>
