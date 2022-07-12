@@ -26,18 +26,22 @@
 				</div>
 			</div>
 			<div id="flex">
-					<div class="flex9">
-							<span th:each=animale:${animali}>
-								<div class="flex8">
-									<a th:text="${animale.nome}"
-										th:href="@{'/animale' + '/' + ${animale.id}}"
-										href="animale.html"></a></br> <a sec:authorize="isAuthenticated()"><a
-										href="animalee.html"
-										th:href="@{'/admin/toDeleteAnimale' + '/' + ${animale.id}}"
-										th:text=Rimuovi>Rimuovi</a></a>
-								</div>
-							</span>
+           <div class="flex9"> 
+            <span th:each=animale:${animali}> 
+            <div class="flex8"><a
+							th:text="${animale.nome}"
+							th:href="@{'/animale' + '/' + ${animale.id}}" href="animale.html"></a>
+
+							<a sec:authorize="isAuthenticated()"><a href="animalee.html"
+								th:href="@{'/admin/toDeleteAnimale' + '/' + ${animale.id}}"
+								th:text=Rimuovi>Rimuovi</a> <a href="animale.html"
+								th:href="@{'/admin/animale/edit' + '/' + ${animale.id}}"
+								th:text="Modifica">Modifica</a></a> <img
+							th:src="@{${'/css/' + animale.nome + '.jpg'}}">
 						</div>
+            </span>
+        
+					</div>
 				</div>
 			</div>
 			<!-- Footer Section -->
