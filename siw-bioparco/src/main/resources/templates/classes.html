@@ -30,7 +30,7 @@
 			<div id="flex">
 				<div class="flex1">
 					<div>
-						<y>Elenco Classi</y></br>
+						<y>Elenco Classi</y><br></br>
 						<span th:each=classe:${classes}> <l><a
 							th:text="${classe.nome}"
 							th:href="@{'/classe' + '/' + ${classe.id}}" href="classe.html"></l></a>
