@@ -4,7 +4,8 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-	<form th:action="@{'/admin/animale/edit/' + ${animale.id}}" method="post" th:object="${animale}">
+	<form th:action="@{'/admin/animale/edit/' + ${animale.id}}"
+		method="post" th:object="${animale}" enctype="multipart/form-data">
 		<div>
 			Nome: <input type="text" th:field="*{nome}">
 			<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
@@ -17,6 +18,8 @@
 				th:errors="*{descrizione}" th:style="'color:red'"></p>
 		</div>
 		<br></br>
+		<label>Photos: </label> <input type="file" name="image"
+			accept="image/png, image/jpeg" /> <br></br>
 		<!-- Select Classe -->
 		<div>
 			<p th:text="'Seleziona' + ' ' + 'classe'"></p>
