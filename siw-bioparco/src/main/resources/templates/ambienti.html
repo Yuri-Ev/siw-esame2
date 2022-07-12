@@ -29,10 +29,10 @@
 				<div class="flex1">
 					<div>
 						<y>Elenco Ambienti</y>
-						</br> <span th:each=ambiente:${ambienti}> <a
+						</br> <span th:each=ambiente:${ambienti}> <l><a
 							th:text="${ambiente.nome}"
 							th:href="@{'/ambiente' + '/' + ${ambiente.id}}"
-							href="ambiente.html"></a> <a sec:authorize="isAuthenticated()"><a
+							href="ambiente.html"></a></l></br> <a sec:authorize="isAuthenticated()"><a
 								href="addestratore.html"
 								th:href="@{'/admin/toDeleteAmbiente' + '/' + ${ambiente.id}}"
 								th:text=Rimuovi>Rimuovi</a> <a href="ambiente.html"

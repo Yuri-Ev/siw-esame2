@@ -29,10 +29,10 @@
            <div class="flex9"> 
             <span th:each=animale:${animali}> 
             <div class="flex8">
-            <img style="width: 100%; max-width: 100px" th:src="@{${'/animali-photos/' + animale.nome + '.png'}}"></br>
-            <a
+            <img style="width: 100%; max-width: 300px" th:src="@{${'/animali-photos/' + animale.nome + '.png'}}"></br>
+            <l><a
 							th:text="${animale.nome}"
-							th:href="@{'/animale' + '/' + ${animale.id}}" href="animale.html"></a></br>
+							th:href="@{'/animale' + '/' + ${animale.id}}" href="animale.html"></a></l></br>
 
 							<a sec:authorize="isAuthenticated()"><a href="animalee.html"
 								th:href="@{'/admin/toDeleteAnimale' + '/' + ${animale.id}}"

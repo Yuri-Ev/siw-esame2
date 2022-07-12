@@ -33,10 +33,12 @@
 				<div class="flex4">
 					<div>
 						<y>Descrizione Animale</y></br>
-						<span
-							th:text="'Nome:' + ${animale.nome} + '  Descrizione: ' + ${animale.descrizione} + 'Area' + ' Geografica: ' + ${animale.areaGeografica} 
-					+ '  Classe: ' + ${animale.classe.nome} + '  Habitat: ' + ${animale.habitat.nome} + '  Alimentazione: ' + ${animale.alimentazione}">
-						</span>
+						<span th:text="'Nome:' + ${animale.nome}"> </span></br>
+						<span th:text="'Descrizione:' + ${animale.descrizione}"> </span></br>
+						<span th:text="'Area' + ' Geografica: ' + ${animale.areaGeografica}"> </span></br>
+						<span th:text="'Classe:' + ${animale.classe.nome}"> </span></br>
+						<span th:text="'Habitat:' + ${animale.habitat.nome}"> </span></br>
+						<span th:text="'Alimentazione:' + ${animale.alimentazione}"> </span></br>
 					</div>
 					</div>
 				</div>
