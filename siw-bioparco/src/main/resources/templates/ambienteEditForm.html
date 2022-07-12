@@ -2,35 +2,74 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>AmbienteEdit</title>
+<title>Home</title>
 <link rel="stylesheet" type="text/css" href="/css/stile2.css" />
-
 </head>
 <body>
-	<form th:action="@{'/admin/ambiente/edit/' + ${ambiente.id}}"
-		method="post" th:object="${ambiente}" enctype="multipart/form-data">
-		<div>
-			Nome: <input type="text" th:field="*{nome}">
-			<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
-				th:style="'color:red'"></p>
-		</div>
+	<div id="page-container">
+		<div id="content-wrap">
+			<!-- all other page content -->
 
-		<div>
-			Descrizione: <input type="text" th:field="*{descrizione}">
-			<p th:if="${#fields.hasErrors('descrizione')}"
-				th:errors="*{descrizione}" th:style="'color:red'"></p>
-		</div>
 
-		<label>Photo: </label> <input type="file" name="image"
-			accept="image/png, image/jpeg" />
+			<div class="flex-item1">
+				<div class="title">
+					<t>&nbsp;&nbsp;BIOPARCO.IT&nbsp;&nbsp;</t>
+				</div>
+				<!-- Menu Navigation Bar -->
+				<div class="menu">
+					<home> <a sec:authorize="!isAuthenticated()"> <a
+						th:href="@{/}">Home</a>
+					</a> <a sec:authorize="isAuthenticated()"> <a th:href="@{/admin}">Home</a>
+					</a></home>
+					<a th:href="@{/animali}">ANIMALI</a> <a th:href="@{/ambienti}">AMBIENTI</a>
+					<a th:href="@{/classes}">CLASSI</a>
+				</div>
+			</div>
+			<div id="flex">
+				<div class="flex1">
+					<div>
+						<form th:action="@{'/admin/ambiente/edit/' + ${ambiente.id}}"
+							method="post" th:object="${ambiente}"
+							enctype="multipart/form-data">
+							<div></br></br>
+								Nome: <input type="text" th:field="*{nome}">
+								<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+									th:style="'color:red'"></p>
+							</div></br>
 
-		<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
-			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-		</div>
+							<div>
+								Descrizione: <input type="text" th:field="*{descrizione}">
+								<p th:if="${#fields.hasErrors('descrizione')}"
+									th:errors="*{descrizione}" th:style="'color:red'"></p>
+							</div></br>
 
-		<div>
-			<button type="submit">Conferma</button>
+							<label>Photo: </label> 
+							<input type="file" name="image"
+								accept="image/png, image/jpeg" />
+							<p style="color: red; font-size: 12px">N.B reinserire l'immagine o cambiarla</p>
+
+							<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
+								<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+							</div></br>
+
+							<div>
+								<button type="submit">Conferma</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- Footer Section -->
+			<footer>
+				<div sec:authorize="!isAuthenticated()">
+					<a th:href="@{/login}">Login</a>
+				</div>
+				<div sec:authorize="isAuthenticated()">
+					<a th:href="@{/logout}">Logout</a>
+				</div>
+			</footer>
 		</div>
-	</form>
+</body>
+</html>
 </body>
 </html>

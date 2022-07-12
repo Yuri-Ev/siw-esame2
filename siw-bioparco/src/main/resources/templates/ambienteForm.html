@@ -28,14 +28,14 @@
 			<div id="flex">
 				<div class="flex1">
 					<div>
-						<y>Aggiungi un Ambiente</y>
+						<y>Aggiungi un Ambiente</y></br></br></br>
 						<form th:action="@{/ambiente}" method="post"
 							th:object="${ambiente}" enctype="multipart/form-data">
 							<div>
 								Nome: <input type="text" th:field="*{nome}">
 								<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
 									th:style="'color:red'"></p>
-							</div>
+							</div></br>
 
 							<div>
 								Descrizione: <input type="text" th:field="*{descrizione}">
@@ -45,12 +45,12 @@
 
 							<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
 								<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-							</div>
+							</div></br>
 
 							<label>Photo: </label> <input type="file" name="image"
 								accept="image/png, image/jpeg" />
 
-							<div>
+							<div></br>
 								<button type="submit">Conferma</button>
 							</div>
 						</form>

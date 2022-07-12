@@ -17,19 +17,34 @@
 				</div>
 				<!-- Menu Navigation Bar -->
 				<div class="menu">
-					<home> 				<a sec:authorize="!isAuthenticated()">
-					<a th:href="@{/}">Home</a>
-				</a>
-				<a sec:authorize="isAuthenticated()">
-					<a th:href="@{/admin}">Home</a>
-				</a></home>
+					<home> <a sec:authorize="!isAuthenticated()"> <a
+						th:href="@{/}">Home</a>
+					</a> <a sec:authorize="isAuthenticated()"> <a th:href="@{/admin}">Home</a>
+					</a></home>
 					<a th:href="@{/animali}">ANIMALI</a> <a th:href="@{/ambienti}">AMBIENTI</a>
 					<a th:href="@{/classes}">CLASSI</a>
 				</div>
 			</div>
 			<div id="flex">
 				<div class="flex1">
-					<div>Descrizione & contatti</div>
+					<div>
+						<p>Il Bioparco di Apese è una struttura in continuo divenire
+							che è nata e cresce nel rispetto delle nuove norme di legge che
+							regolamentano la custodia degli animali nei giardini zoologici.
+							Uno zoo dunque di concezione moderna che si allontana dal
+							concetto un tempo concepito come museo vivente e luogo in cui si
+							collezionano animali senza una strategia globale. Il Bioparco
+							promuove ed attua programmi di educazione e di sensibilizzazione
+							del pubblico e del mondo della scuola in materia di conservazione
+							della biodiversità, fornendo specifiche informazioni sulle specie
+							esposte, sui loro habitat naturali, sulle possibilità ed i
+							tentativi effettuati o pianificati per il loro reinserimento in
+							natura.</p>
+						</br>
+						<p>Bioparco di Apese Via Garibaldi 139 - 90044 Carini (AP)</p></br> 
+							<p>info@bioparcodiapese.it </p></br> 
+							<p>tel. +39 091.867.62.11   mob. +39 348.58.01.334   fax +39 091.867.43.40</p>
+					</div>
 				</div>
 			</div>
 			<!-- Footer Section -->

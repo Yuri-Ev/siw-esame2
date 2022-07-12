@@ -28,25 +28,25 @@
 			<div id="flex">
 				<div class="flex1">
 					<div>
-						<y>Aggiungi un Animale</y>
+						<y>Aggiungi un Animale</y></br></br></br>
 						<form th:action="@{/animale}" method="post" th:object="${animale}"  enctype="multipart/form-data" >
 							<div>
 								Nome: <input type="text" th:field="*{nome}">
 								<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
 									th:style="'color:red'"></p>
-							</div>
+							</div></br>
 							<div>
 								Descrizione: <input type="text" th:field="*{descrizione}">
 								<p th:if="${#fields.hasErrors('descrizione')}"
 									th:errors="*{descrizione}" th:style="'color:red'"></p>
-							</div>
+							</div></br>
 
 							<div>
 
 								<label>Photo: </label> <input type="file" name="image"
 									accept="image/png, image/jpeg" />
 
-							</div>
+							</div></br>
 							<!-- Select Classe -->
 							<div>
 								<p th:text="'Seleziona' + ' ' + 'classe'"></p>
@@ -56,7 +56,7 @@
 								</select>
 								<p th:if="${#fields.hasErrors('classe')}" th:errors="*{classe}"
 									th:style="'color:red'"></p>
-							</div>
+							</div></br>
 							<!-- Select Ambiente -->
 							<div>
 								<p th:text="'Seleziona' + ' ' + 'ambiente'"></p>
@@ -66,7 +66,7 @@
 								</select>
 								<p th:if="${#fields.hasErrors('habitat')}"
 									th:errors="*{habitat}" th:style="'color:red'"></p>
-							</div>
+							</div></br>
 							<!-- Select Regione Geografica -->
 							<div>
 								<p th:text="'Seleziona' + ' ' + 'area'  + ' ' + 'geografica'"></p>
@@ -93,7 +93,7 @@
 
 								<div th:if="${#fields.hasGlobalErrors()}" th:style="'color:red'">
 									<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-								</div>
+								</div></br>
 								<div>
 									<button type="submit">Conferma</button>
 								</div>

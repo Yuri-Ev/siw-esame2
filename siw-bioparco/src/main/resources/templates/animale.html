@@ -17,29 +17,36 @@
 				</div>
 				<!-- Menu Navigation Bar -->
 				<div class="menu">
-					<home> 				<a sec:authorize="!isAuthenticated()">
-					<a th:href="@{/}">Home</a>
-				</a>
-				<a sec:authorize="isAuthenticated()">
-					<a th:href="@{/admin}">Home</a>
-				</a></home>
+					<home> <a sec:authorize="!isAuthenticated()"> <a
+						th:href="@{/}">Home</a>
+					</a> <a sec:authorize="isAuthenticated()"> <a th:href="@{/admin}">Home</a>
+					</a></home>
 					<a th:href="@{/animali}">ANIMALI</a> <a th:href="@{/ambienti}">AMBIENTI</a>
 					<a th:href="@{/classes}">CLASSI</a>
 				</div>
 			</div>
 			<div id="flex">
 				<div class="flex1">
-				<div class="flex3"><img style="width: 100%; max-width: 1200px" th:src="@{${'/animali-photos/' + animale.nome + '.png'}}"></div>
-				<div class="flex4">
-					<div>
-						<y>Descrizione Animale</y></br>
-						<span th:text="'Nome:' + ${animale.nome}"> </span></br>
-						<span th:text="'Descrizione:' + ${animale.descrizione}"> </span></br>
-						<span th:text="'Area' + ' Geografica: ' + ${animale.areaGeografica}"> </span></br>
-						<span th:text="'Classe:' + ${animale.classe.nome}"> </span></br>
-						<span th:text="'Habitat:' + ${animale.habitat.nome}"> </span></br>
-						<span th:text="'Alimentazione:' + ${animale.alimentazione}"> </span></br>
+					<div class="flex3"></br>
+						<img style="width: 100%; max-width: 1200px"
+							th:src="@{${'/animali-photos/' + animale.nome + '.png'}}">
 					</div>
+					<div class="flex4">
+						<div>
+							<y>Descrizione Animale</y>
+							</br> <span th:text="'Nome:'"> </span></br>
+							<span th:text="${animale.nome}"></span></br></br> 
+							<span th:text="'Descrizione:'"></span></br> 
+							<span th:text="${animale.descrizione}"></span></br></br> 
+							<span th:text="'Area' + ' Geografica: '"></span></br> 
+							<span th:text="${animale.areaGeografica}">
+							</span></br></br> <span th:text="'Classe:'"> </span></br> <span
+								th:text="${animale.classe.nome}"> </span></br></br> <span
+								th:text="'Habitat:'"> </span></br> <span
+								th:text="${animale.habitat.nome}"> </span></br></br> <span
+								th:text="'Alimentazione:'"> </span></br> <span
+								th:text="${animale.alimentazione}"> </span></br></br>
+						</div>
 					</div>
 				</div>
 			</div>
