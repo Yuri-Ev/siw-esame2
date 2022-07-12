@@ -12,7 +12,7 @@ public class SiwCatering1Application {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(SiwCatering1Application.class, args);
-		FileUtils.cleanDirectory(new File("animali-photos"));
+		FileUtils.cleanDirectory(new File("src/main/resources/static/animali-photos"));
 	}
 
 }

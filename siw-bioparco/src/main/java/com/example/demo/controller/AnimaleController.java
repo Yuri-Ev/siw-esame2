@@ -53,7 +53,7 @@ public class AnimaleController {
 			String fileName = animale.getNome() + ".png";
 	        animale.setPhoto(fileName);         
 	        animaleService.save(animale);	 
-	        String uploadDir = "animali-photos/";
+	        String uploadDir = "src/main/resources/static/animali-photos/";
 	        FileUploadUtil.saveFile(uploadDir, fileName, image);
 			model.addAttribute("animale",animale);
 			return "animale.html";
