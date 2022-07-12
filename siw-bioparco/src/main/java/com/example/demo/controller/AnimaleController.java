@@ -105,7 +105,7 @@ public class AnimaleController {
 
 
 	@PostMapping("/admin/animale/edit/{id}")
-	public String editAmbiente(@Valid @ModelAttribute("animale") Animale animale,BindingResult bindingResult, Model model) {
+	public String editAnimale(@Valid @ModelAttribute("animale") Animale animale,BindingResult bindingResult, Model model) {
 		if(!bindingResult.hasErrors()) {
 			animaleService.save(animale);
 			model.addAttribute("animale",animale);
